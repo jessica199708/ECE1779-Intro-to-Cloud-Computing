@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+       <h1>Hi,{{current_user.username}}</h1>
+
+         {% if current_user.username =='Admin' %}
+         <p>
+            <a href="{{ url_for('register') }}">Register For New Account</a>
+         </p>
+         <p>
+            <a href="{{ url_for('delete_account') }}">Delete An Account</a>
+         </p>
+         {% endif %}
+
+       <h3>Local File Upload</h3>
+         <form method="POST" action="" enctype="multipart/form-data">
+         <p><input type="file" name="file"></p>
+         <p><input type="submit" value="Submit"></p>
+         </form>
+       <h3>URL File Upload</h3>
+       <p>
+            <a href="{{ url_for('urlupload') }}">URL File Upload</a>
+       </p>
+
+
+        <hr>
+        <h4>Uploaded Files History</h4>
+        {% for file in files %}
+            <img src="{{'/static/output/' + file}}" class="img-fluid" style="width: 128px">
+        {% endfor %}
+
+        <hr>
+        <h4>No Face Uploaded Files</h4>
+       {% for photo in photos0%}
+            <img src="{{'/static/output/' + photo}}" class="img-fluid" style="width: 128px">
+       {% endfor %}
+
+        <hr>
+        <h4>All Masked Uploaded Files</h4>
+       {% for photo in photos1%}
+            <img src="{{'/static/output/' + photo}}" class="img-fluid" style="width: 128px">
+       {% endfor %}
+
+        <hr>
+        <h4>No Masked Uploaded Files</h4>
+       {% for photo in photos2%}
+            <img src="{{'/static/output/' + photo}}" class="img-fluid" style="width: 128px">
+       {% endfor %}
+
+        <hr>
+        <h4>Some Masked Uploaded Files</h4>
+       {% for photo in photos3%}
+            <img src="{{'/static/output/' + photo}}" class="img-fluid" style="width: 128px">
+       {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content-section"
+     style="background: #FAF0E6;
+            padding: 10px 20px;
+            border: 1px solid #dddddd;
+            border-radius: 2px;
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-left: 20px">
+    <header class="jumbotron my-4">
+    {% if success == True %}
+    <div class="alert alert-success">Autoscaler Updated </div>
+    {% endif %}
+    <form method="post" action='/auto_modify'>
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="threshold_max">Threshold_max</label>
+                  <input type="number" step="0.01" class="form-control"  placeholder="threshold_max" name="threshold_max">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="threshold_min">Threshold_min</label>
+                  <input type="number" step="0.01" class="form-control"  placeholder="threshold_min" name="threshold_min">
+                </div>
+        </div>
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="ratio_expand">Ratio_expand</label>
+                  <input type="number" step="0.01" class="form-control"  placeholder="ratio_expand" name="ratio_expand">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="ratio_shrink">Ratio_shrink</label>
+                  <input type="number" step="0.01" class="form-control"  placeholder="ratio_shrink" name="ratio_shrink">
+                </div>
+        </div>
+        <input class="col-md-12" type="submit" value="Submit">
+    </form>
+    </header>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-section" style="margin-top:100px" >
+    <center> <h4 style="margin-left:20px;">Change Worker Size</h4></center>
+    <div class="container">
+
+<table class="table" >
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"><center>Increase Worker</center></th>
+      <th scope="col"><center>Decrease Worker</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          <center>
+           <button type="button" class="btn btn-outline-success"
+                    style=" width:100px" onclick="window.location.href='{{url_for('increase_workers')}}';" >
+             Increase
+
+           </button>
+          </center>
+      </td>
+      <td>
+          <center>
+          <button type="button" class="btn btn-outline-danger"
+                style="width:100px" onclick="window.location.href='{{url_for('decrease_workers')}}';">
+            Decrease
+        </button>
+          </center>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+     </div>
+
+
+</div>
+{% endblock content %}

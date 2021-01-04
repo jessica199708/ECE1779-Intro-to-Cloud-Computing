@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid" ><br>
+
+<table class="table table-striped" style="margin-top:30px">
+  <thead>
+    <tr>
+
+      <th scope="col"><center>ID</center></th>
+      <th scope="col"><center>Key Name</center></th>
+      <th scope="col"><center>Image ID</center></th>
+      <th scope="col"><center>Tag</center></th>
+      <th scope="col"><center>Type</center></th>
+      <th scope="col"><center>View</center></th>
+    </tr>
+  </thead>
+  <tbody>
+ {% for instance in instance_list %}
+    <tr>
+
+        <td><center><small>{{instance.id[2:]}}</small></center></td>
+        <td><center><small>{{instance.key_name}}</small></center></td>
+        <td><center><small>{{instance.image_id[4:]}}</small></center></td>
+        <td><center><small>{{instance.tags[0]['Value']}}</small></center></td>
+        <td><center><small>{{instance.instance_type}}</small></center></td>
+        <td><center><small><a href="{{ url_for('view', instance_id = instance.id) }}"
+                      class="btn btn-primary btn-sm">Detail</a></small></center></td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock %}
